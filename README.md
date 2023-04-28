@@ -110,7 +110,7 @@
   - [Arduino-串口函数Serial](https://www.cnblogs.com/gaosheng-221/p/6641060.html)
 
 - [ ] 紫外线驱动 @Minghao Wang
-- [ ] 红外线驱动 @YanzhangWang
+- [x] 红外线驱动 @YanzhangWang
 - [ ] 超声波驱动 @1cas
 - [ ] 点亮屏幕 @oh it works
 - [ ] 消息控制流程 @oh it works
