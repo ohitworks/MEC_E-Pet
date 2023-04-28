@@ -93,7 +93,7 @@
 
 [**Minghao Wang**](https://github.com/Double-Shark)
 
-**One More Here**
+[**YanzhangWang**](https://github.com/YanzhangWang)
 
 ## 任务分配和时间线
 
@@ -101,34 +101,29 @@
 
 > Warning:  EAP 口语考试
 
-1. Arduino 串口数据打印 @YanzhangWang
+- [x] Arduino 串口数据打印 @YanzhangWang
 
-   相关资料:
+  相关资料:
 
-   - [官方资料](https://www.arduino.cc/reference/en/language/functions/communication/serial/println/)
-   - [Arduino-串口函数Serial](https://www.cnblogs.com/gaosheng-221/p/6641060.html)
+  - [官方资料](https://www.arduino.cc/reference/en/language/functions/communication/serial/println/)
 
-2. 紫外线驱动 @Minghao Wang
+  - [Arduino-串口函数Serial](https://www.cnblogs.com/gaosheng-221/p/6641060.html)
 
-3. 红外线驱动 @YanzhangWang
-
-4. 超声波驱动 @1cas
-
-5. 点亮屏幕 @oh it works
-
-6. 消息控制流程 @oh it works
-
-7. 布线图 @oh it works
-
-8. Report Building (5/5 finish together)
+- [ ] 紫外线驱动 @Minghao Wang
+- [ ] 红外线驱动 @YanzhangWang
+- [ ] 超声波驱动 @1cas
+- [ ] 点亮屏幕 @oh it works
+- [ ] 消息控制流程 @oh it works
+- [ ] 布线图 @oh it works
+- [ ] Report Building (5/5 finish together)
 
 5/5 ~ 5/12:
 
-1. Report Building
+- [ ] Report Building
 
 5/12 ~ 5/19:
 
-1. Finish Report
+- [ ] Finish Report
 
 ## 工具链
 
