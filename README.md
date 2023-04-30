@@ -111,11 +111,16 @@
 
 - [ ] 紫外线驱动 @Minghao Wang
 - [x] 红外线驱动 @YanzhangWang
-- [ ] 超声波驱动 @1cas
+- [x] 超声波驱动 @1cas
 - [ ] 点亮屏幕 @oh it works
 - [ ] 消息控制流程 @oh it works
 - [ ] 布线图 @oh it works
 - [ ] Report Building (5/5 finish together)
+
+@YanzhangWang
+
+- [x] 土壤湿度传感器
+- [x] 语音传感器
 
 5/5 ~ 5/12:
 
