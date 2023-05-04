@@ -1,3 +1,8 @@
 cmake-*
+.pio/build/*
 
 *.swp
+
+
+CMakeLists.txt
+CMakeListsPrivate.txt
