@@ -44,7 +44,7 @@ namespace message {
                 mn.message_info = 2;
                 mm.push(mn);
             }
-        } else if (mm.pop(mn)) {
+        } else if (mm.pop(mn) == 0) {
             Serial.print("Popped ");
             Serial.print(mn.message_name);
             Serial.print("  info:");
