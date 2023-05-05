@@ -18,7 +18,7 @@
 namespace message {
     class MessageNode {
     public:
-        char message_name[4] = {};
+        char message_name[4] = {0};
         int message_info = 0;
         void *data_ptr = nullptr;
         void clear();

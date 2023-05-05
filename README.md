@@ -109,13 +109,17 @@
 
   - [Arduino-串口函数Serial](https://www.cnblogs.com/gaosheng-221/p/6641060.html)
 
-- [ ] 紫外线驱动 @Minghao Wang
+- [x] 紫外线驱动 @Minghao Wang
+
 - [x] 红外线驱动 @YanzhangWang
+
 - [x] 超声波驱动 @1cas
-- [ ] 点亮屏幕 @oh it works
-- [ ] 消息控制流程 @oh it works
-- [ ] 布线图 @oh it works
-- [ ] Report Building (5/5 finish together)
+
+- [x] 点亮屏幕 @oh it works
+
+- [x] 消息控制流程 @oh it works
+
+- [x] 布线图 @oh it works
 
 @YanzhangWang
 
@@ -124,7 +128,15 @@
 
 5/5 ~ 5/12:
 
-- [ ] Report Building
+- [ ] 表情包(大小: 128x64)(太阳, Smile, Sad, Water) 类型为 bitmap @YanzhangWang
+- [ ] 土壤传感器消息发送 @YanzhangWang
+- [ ] 红外线传感器消息发送 @YanzhangWang
+- [ ] git 操作教程 @1cas @YanzhangWang
+- [ ] 项目 Arduino 创建文档 @1cas @oh it works
+- [ ] 超声波传感器消息发送 @1cas
+- [ ] 完成消息库代码以及文档 @oh it works
+- [ ] 紫外线传感器消息发送 @Minghao Wang
+- [ ] Report Building (5/12 together)
 
 5/12 ~ 5/19:
 
