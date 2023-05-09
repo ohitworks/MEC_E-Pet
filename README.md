@@ -33,7 +33,7 @@
 
 - 开发板
 
-  - Audio UNO
+  - Ardunio UNO
 
 - 传感器:
 
