@@ -5,7 +5,7 @@
  // Sensor pins
  #define sensorPower 7
  #define sensorPin A0
-
+int soil = 0;
  void setup() {
      pinMode(sensorPower, OUTPUT);
      
@@ -23,8 +23,10 @@ Serial.println(moisture);
      // Determine status of our soil
      if (moisture < soilWet) {
          Serial.println("Status: Soil is too wet");
+      soil=1;
      } else if (moisture >= soilWet && moisture < soilDry) {
          Serial.println("Status: Soil moisture is perfect");
+      soil=2;
      } else {
          Serial.println("Status: Soil is too dry - time to water!");
      }
