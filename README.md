@@ -128,17 +128,20 @@
 
 5/5 ~ 5/12:
 
-- [ ] 表情包(大小: 128x64)(太阳, Smile, Sad, Water) 类型为 bitmap @YanzhangWang
-- [ ] 土壤传感器消息发送 @YanzhangWang
-- [ ] 红外线传感器消息发送 @YanzhangWang
+- [x] 表情包(大小: 128x64)(太阳, Smile, Sad, Water) 类型为 bitmap @YanzhangWang
+- [x] 土壤传感器消息发送 @YanzhangWang
+- [x] 红外线传感器消息发送 @YanzhangWang
 - [ ] git 操作教程 @1cas @YanzhangWang
 - [ ] 项目 Arduino 创建文档 @1cas @oh it works
 - [x] 超声波传感器消息发送 @1cas
 - [ ] 完成消息库代码以及文档 @oh it works
-- [ ] 紫外线传感器消息发送 @Minghao Wang
-- [ ] Report Building (5/12 together)
+- [x] 紫外线传感器消息发送 @Minghao Wang
+- [x] Report Building (5/12 together)
 
-5/12 ~ 5/19:
+5/13:
+
+- [ ] 拍摄视频
+- [ ] 更新文档
 
 - [ ] Finish Report
 
