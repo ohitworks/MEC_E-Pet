@@ -1,6 +1,6 @@
 /* Change these values based on your calibration values */
-#define soilWet 500   // Define max value we consider soil 'wet'
-#define soilDry 750   // Define min value we consider soil 'dry'
+#define SOIL_WET 500   // Define max value we consider soil 'wet'
+#define SOIL_DRY 750   // Define min value we consider soil 'dry'
 
 // Sensor pins
 #define sensorPower 7
@@ -22,10 +22,10 @@ void loop() {
     Serial.print("Analog Output: ");
     Serial.println(moisture);
     // Determine status of our soil
-    if (moisture < soilWet) {
+    if (moisture < SOIL_WET) {
         Serial.println("Status: Soil is too wet");
         soil = 1;
-    } else if (moisture >= soilWet && moisture < soilDry) {
+    } else if (moisture >= SOIL_WET && moisture < SOIL_DRY) {
         Serial.println("Status: Soil moisture is perfect");
         soil = 2;
     } else {

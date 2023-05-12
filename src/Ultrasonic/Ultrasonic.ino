@@ -1,3 +1,5 @@
+#include "message_manager.hpp"
+
 namespace ult{
 #ifdef IS_MAIN
   int put_message(char *name, int message_info, void * data_ptr) {
@@ -11,7 +13,7 @@ pinMode(TrigPin,OUTPUT);
 pinMode(EchoPin,INPUT);
 }
 
-void loop() {
+void loop(mmg::MessageManager &msg_manager) {
 digitalWrite(7, LOW);
 digitalWrite(TrigPin,LOW);        //Send level pulses to the Trigpin pins in low and high order
 delayMicroseconds(2);             //Delay time
@@ -36,6 +38,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  ult::loop();
+    ult::loop(<#initializer#>);
 }
 #endif

@@ -1,7 +1,7 @@
 //
 // Created by oh it works on 5/12/2023.
 //
-#include "config.hpp"
+#include "project_config.h"
 
 #include "Soil_moisture_sensor.hpp"
 
@@ -10,13 +10,12 @@
 
 namespace sms {
     /* Change these values based on your calibration values */
-#define soilWet 500   // Define max value we consider soil 'wet'
-#define soilDry 750   // Define min value we consider soil 'dry'
 
 // Sensor pins
 #define sensorPower 7
 #define sensorPin A0
-    int soil = 0;
+
+    mmg::MessageNode node;
 
     void setup() {
         pinMode(sensorPower, OUTPUT);
@@ -24,26 +23,30 @@ namespace sms {
         // Initially keep the sensor OFF
         digitalWrite(sensorPower, LOW);
 
-        Serial.begin(9600);
+        node.set_name("sms");
+
     }
 
-    void loop() {
+    void loop(mmg::MessageManager& manager) {
         //get the reading from the function below and print it
-        int moisture = readSensor();
+        static int moisture = readSensor();
         Serial.print("Analog Output: ");
         Serial.println(moisture);
         // Determine status of our soil
-        if (moisture < soilWet) {
+        if (moisture < SOIL_WET) {
             Serial.println("Status: Soil is too wet");
-            soil = 1;
-        } else if (moisture >= soilWet && moisture < soilDry) {
+            node.message_info = 1;
+        } else if (moisture < SOIL_DRY) {
             Serial.println("Status: Soil moisture is perfect");
-            soil = 2;
+            node.message_info = 0;
         } else {
             Serial.println("Status: Soil is too dry - time to water!");
+            node.message_info = 2;
         }
+        node.data_ptr = &moisture;
+        manager.push(node);
 
-        delay(1000);    // Take a reading every second for testing
+//        delay(1000);    // Take a reading every second for testing
         // Normally you should take reading perhaps once or twice a day
         Serial.println();
     }

@@ -1,7 +1,7 @@
 //
-// Created by jessica on 5/12/2023.
+// Created by oh it works on 5/12/2023.
 //
-#include "config.hpp"
+#include "project_config.h"
 #include "display.hpp"
 #include "expressions.hpp"
 
@@ -18,15 +18,45 @@ namespace dis {
         u8g2.setFont(u8g2_font_ncenB14_tr);
     }
 
-    void loop() {
+    void loop(mmg::MessageManager &message_manager) {
+        static mmg::MessageNode node;
+        bool update = true;
+
         u8g2.firstPage();
         u8g2.clearDisplay();
-        do {
 
-            u8g2.drawXBMP(0, 0, 128, 64, EM_CRY);
-            delay(1000);
-        } while (u8g2.nextPage());
-//        u8g2.sendBuffer();
+        while (message_manager.pop(node) == 0) {
+            if (mmg::is_message("ctr", node)) {
+                update = true;
+                switch (node.message_info) {
+                    case CODE_CLEAR:
+                        u8g2.clearDisplay();
+                        break;
+                    case CODE_EM_LAUGH:
+                        u8g2.drawXBMP(0, 0, 128, 64, EM_LAUGH);
+                        break;
+                    case CODE_EM_SML:
+                        u8g2.drawXBMP(0, 0, 128, 64, EM_SMAIL);
+                        break;
+                    case CODE_EM_CRY:
+                        u8g2.drawXBMP(0, 0, 128, 64, EM_CRY);
+                        break;
+                    case CODE_EM_DIZZY:
+                        u8g2.drawXBMP(0, 0, 128, 64, EM_DIZZY);
+                        break;
+                    case CODE_EM_WORRY:
+                        u8g2.drawXBMP(0, 0, 128, 64, EM_WORRY);
+                        break;
+                    default:
+                        update = false;
+                        break;
+                }
+            }
+            if (update) {
+                u8g2.nextPage();
+                delay(SCREEN_REST_TIME);
+            }
+        }
     }
 }
 

@@ -1,8 +1,9 @@
 //
 // Created by jessica on 5/12/2023.
 //
-
+#include "project_config.h"
 #include "uv_sensor.hpp"
+#include "message_manager.hpp"
 
 #include <Arduino.h>
 
@@ -48,6 +49,8 @@ namespace uvs {
     int UVOUT = A0;  // Output from the sensor
     int REF_3V3 = A1;  // 3.3V power on the Arduino board
 
+    mmg::MessageNode node;
+
     void setup() {
 //        Serial.begin(9600);
 
@@ -55,16 +58,19 @@ namespace uvs {
         pinMode(REF_3V3, INPUT);
 
         Serial.println("MP8511 example");
+
+        node.set_name("uvs");
     }
 
-    void loop() {
+    void loop(mmg::MessageManager &message_manager) {
+        static float uvIntensity;
         int uvLevel = averageAnalogRead(UVOUT);
         int refLevel = averageAnalogRead(REF_3V3);
 
         //Use the 3.3V power pin as a reference to get a very accurate output value from sensor
         float outputVoltage = 3.3f / refLevel * uvLevel;
 
-        float uvIntensity = map_float(outputVoltage, 0.99, 2.9, 0.0, 15.0);
+        uvIntensity = map_float(outputVoltage, 0.99, 2.9, 0.0, 15.0);
 
         Serial.print("MP8511 output: ");
         Serial.print(uvLevel);
@@ -77,7 +83,12 @@ namespace uvs {
 
         Serial.println();
 
-        delay(100);
+        // update
+        node.message_info = uvIntensity > UV_LOW;
+        node.data_ptr = &uvIntensity;
+        message_manager.push(node);
+
+//        delay(100);
     }
 
 // Takes an average of readings on a given pin

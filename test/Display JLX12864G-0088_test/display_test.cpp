@@ -1,4 +1,4 @@
-#include "config.hpp"
+#include "project_config.h"
 #include "U8g2lib.h"
 
 #include "Ultrasonic.hpp"
@@ -23,7 +23,7 @@ void setup() {
 void loop() {
     // mail loop
     u8g2.clearDisplay();
-    ult::loop();
+    ult::loop(<#initializer#>);
     u8g2.print(ult::cm);
     u8g2.sendBuffer();
 }
