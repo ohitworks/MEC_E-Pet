@@ -133,7 +133,7 @@
 - [ ] 红外线传感器消息发送 @YanzhangWang
 - [ ] git 操作教程 @1cas @YanzhangWang
 - [ ] 项目 Arduino 创建文档 @1cas @oh it works
-- [ ] 超声波传感器消息发送 @1cas
+- [x] 超声波传感器消息发送 @1cas
 - [ ] 完成消息库代码以及文档 @oh it works
 - [ ] 紫外线传感器消息发送 @Minghao Wang
 - [ ] Report Building (5/12 together)

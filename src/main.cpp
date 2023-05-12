@@ -1,38 +1,41 @@
-#include "U8g2lib.h"
+#include "config.hpp"
 
-static const unsigned char frontLeg_bits[] = {
-        0x00, 0xf0, 0x0f, 0x00, 0xdc, 0x1f, 0x00, 0xf8, 0x1f, 0x00, 0xf8, 0x1f,
-        0x00, 0xf8, 0x1f, 0x00, 0xfc, 0x00, 0x00, 0xf8, 0x07, 0x01, 0x7e, 0x00,
-        0x01, 0x7f, 0x00, 0xc3, 0xff, 0x01, 0xef, 0x7f, 0x01, 0xff, 0x7f, 0x00,
-        0xfe, 0x7f, 0x00, 0xfc, 0x3f, 0x00, 0xf8, 0x1f, 0x00, 0xf0, 0x0f, 0x00,
-        0xe0, 0x18, 0x00, 0xe0, 0x00, 0x00, 0x20, 0x00, 0x00, 0x60, 0x00, 0x00
-};
+#ifdef IS_MAIN
 
-U8G2_UC1701_MINI12864_F_4W_SW_SPI u8g2(U8G2_R0,
-                                       13, 12, 11, 9, 10);
+#include "display.hpp"
+#include "Ultrasonic.hpp"
+#include "Soil_moisture_sensor.hpp"
+#include "ir_sensor.hpp"
+#include "uv_sensor.hpp"
+
+#include <Arduino.h>
+
 
 void setup() {
-    u8g2.begin();
+    Serial.begin(9600);
 
-    u8g2.clearBuffer();
-    u8g2.drawBox(u8g2.getDisplayWidth() / 4, u8g2.getDisplayHeight() / 4,
-                 u8g2.getDisplayWidth() / 2, u8g2.getDisplayHeight() / 2);
-    u8g2.sendBuffer();
-    delay(1000);
+    dis::setup();
+
+    ult::setup();
+
+    sms::setup();
+
+    irs::setup();
+
+    uvs::setup();
 }
 
 void loop() {
     // mail loop
-    for (int x = 0; x < 124; x += 10) {
-        // keep screen clear 0.5s
-        u8g2.clearDisplay();
-        u8g2.sendBuffer();
-        delay(500);
+//    u8g2.clearDisplay();
+//    u8g2.print(ult::loop());
+//    u8g2.sendBuffer();
+//
+//    sms::loop();
 
-        // draw the picture
-        u8g2.clearBuffer();
-        u8g2.drawXBM(x, 10, 21, 20, frontLeg_bits);
-        u8g2.sendBuffer();
-        delay(1000);
-    }
+//    irs::loop();
+    dis::loop();
+    delay(1000);
 }
+
+#endif

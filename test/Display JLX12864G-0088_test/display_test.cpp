@@ -1,4 +1,8 @@
+#include "config.hpp"
 #include "U8g2lib.h"
+
+#include "Ultrasonic.hpp"
+
 
 static const unsigned char frontLeg_bits[] = {
         0x00, 0xf0, 0x0f, 0x00, 0xdc, 0x1f, 0x00, 0xf8, 0x1f, 0x00, 0xf8, 0x1f,
@@ -13,30 +17,13 @@ U8G2_UC1701_MINI12864_F_4W_SW_SPI u8g2(U8G2_R0,
 
 void setup() {
     u8g2.begin();
+    ult::setup();
 }
 
 void loop() {
     // mail loop
     u8g2.clearDisplay();
+    ult::loop();
+    u8g2.print(ult::cm);
     u8g2.sendBuffer();
-    delay(500);
-
-    u8g2.clearBuffer();
-    u8g2.drawBox(u8g2.getDisplayWidth() / 4, u8g2.getDisplayHeight() / 4,
-                 u8g2.getDisplayWidth() / 2, u8g2.getDisplayHeight() / 2);
-    u8g2.sendBuffer();
-    delay(1000);
-
-    u8g2.clearBuffer();
-    u8g2.drawXBM(10, 10, 21, 20, frontLeg_bits);
-    u8g2.sendBuffer();
-    delay(1000);
-
-    u8g2.clearDisplay();
-    u8g2.sendBuffer();
-
-    u8g2.clearBuffer();
-    u8g2.drawXBM(10, 40, 21, 20, frontLeg_bits);
-    u8g2.sendBuffer();
-    delay(1000);
 }
