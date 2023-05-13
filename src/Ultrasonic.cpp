@@ -12,7 +12,7 @@
 #include "Ultrasonic.hpp"
 
 namespace ult {
-    static double cm = 0;
+    double cm = 0;
 
     mmg::MessageNode node;
 
@@ -33,9 +33,10 @@ namespace ult {
         digitalWrite(TrigPin, HIGH);
         delayMicroseconds(10);
         digitalWrite(TrigPin, LOW);
-        cm = pulseIn(EchoPin, HIGH) / 58.0;    //Read the pulse width and convert it to centimeters
+        cm = (double) pulseIn(EchoPin, HIGH) / 58.0;    //Read the pulse width and convert it to centimeters
 
         Serial.print(cm);
+        Serial.print(" cm\n");
 
         node.message_info = cm <= ULT_LOW;
         node.data_ptr = &cm;

@@ -19,18 +19,20 @@ mmg::MessageManager message_manager(MESSAGE_NODE_NUMBERS);
 
 void setup() {
     Serial.begin(9600);
+    Serial.println("Hello world!");
 
-    mmg::setup();
+
+//    mmg::setup();
 
     dis::setup();
 
-    ult::setup();
+//    ult::setup();
+//
+//    sms::setup();
 
-    sms::setup();
-
-    irs::setup();
-
-    uvs::setup();
+//    irs::setup();
+//
+//    uvs::setup();
 }
 
 /**
@@ -113,22 +115,40 @@ void controller(mmg::MessageNode &message) {
 
 void loop() {
     // mail loop
+    Serial.println("Hello world!");
+
     static mmg::MessageNode message;
 
-    mmg::loop();
-    ult::loop(message_manager);
-    sms::loop(message_manager);
-    irs::loop(message_manager);
-    uvs::loop(message_manager);
+//    mmg::loop();
+//    ult::loop(message_manager);
+//    sms::loop(message_manager);
+//    irs::loop(message_manager);
+//    uvs::loop(message_manager);
+    static mmg::MessageNode node;
 
-    while (message_manager.pop(message) == 0) {
-        controller(message);
-        delay(SCREEN_REST_TIME);
-    }
+//    node.set_name("ctr");
+//    node.message_info = CODE_EM_SML;  // Use smail expression to welcome
+//    message_manager.push(node);
+//    node.set_name("ctr");
+//    node.message_info = CODE_EM_WORRY;  // Use smail expression to welcome
+//    message_manager.push(node);
+//    node.set_name("ctr");
+//    node.message_info = CODE_EM_CRY;  // Use smail expression to welcome
+//    message_manager.push(node);
+//    node.set_name("ctr");
+//    node.message_info = CODE_EM_DIZZY;  // Use smail expression to welcome
+//    message_manager.push(node);
+//    node.set_name("ctr");
+//    node.message_info = CODE_EM_LAUGH;  // Use smail expression to welcome
+//    message_manager.push(node);
+
+//    while (message_manager.pop(message) == 0) {
+//        controller(message);
+//    }
 
     dis::loop(message_manager);
 
-    delay(1000);
+//    delay(1000);
 }
 
 #endif

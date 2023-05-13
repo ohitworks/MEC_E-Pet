@@ -25,10 +25,13 @@ namespace dis {
         u8g2.firstPage();
         u8g2.clearDisplay();
 
-        while (message_manager.pop(node) == 0) {
-            if (mmg::is_message("ctr", node)) {
+//        while (message_manager.pop(node) == 0) {
+        for (int key = 1; key <= 5; key++) {
+//            if (mmg::is_message("ctr", node)) {
+            if (true) {
                 update = true;
-                switch (node.message_info) {
+//                switch (node.message_info) {
+                switch (key) {
                     case CODE_CLEAR:
                         u8g2.clearDisplay();
                         break;
@@ -36,7 +39,8 @@ namespace dis {
                         u8g2.drawXBMP(0, 0, 128, 64, EM_LAUGH);
                         break;
                     case CODE_EM_SML:
-                        u8g2.drawXBMP(0, 0, 128, 64, EM_SMAIL);
+//                        u8g2.drawXBMP(0, 0, 128, 64, EM_SMAIL);
+                        continue;
                         break;
                     case CODE_EM_CRY:
                         u8g2.drawXBMP(0, 0, 128, 64, EM_CRY);
@@ -51,10 +55,13 @@ namespace dis {
                         update = false;
                         break;
                 }
-            }
-            if (update) {
-                u8g2.nextPage();
-                delay(SCREEN_REST_TIME);
+                if (update) {
+                    Serial.print("update   ");
+                    Serial.print(key);
+                    Serial.println("");
+                    u8g2.nextPage();
+                    delay(SCREEN_REST_TIME);
+                }
             }
         }
     }

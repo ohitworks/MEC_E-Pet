@@ -27,10 +27,10 @@ namespace irs {
         // 读取并存储红外传感信号输出电平数值
         irSensorOutput = digitalRead(irSensor);
         if (irSensorOutput == HIGH) {
-            Serial.println("IR : High.");
+//            Serial.println("IR : High.");
             node.message_info = 1;
         } else {
-            Serial.println("IR : Low.");
+//            Serial.println("IR : Low.");
             node.message_info = 0;
         }
         manager.push(node);
