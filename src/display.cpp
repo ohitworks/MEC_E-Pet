@@ -25,40 +25,46 @@ namespace dis {
         u8g2.firstPage();
         u8g2.clearDisplay();
 
-//        while (message_manager.pop(node) == 0) {
-        for (int key = 1; key <= 5; key++) {
-//            if (mmg::is_message("ctr", node)) {
-            if (true) {
+        while (message_manager.pop(node) == 0) {
+//        for (int key = 1; key <= 5; key++) {
+            if (mmg::is_message("ctr", node)) {
+//            if (true) {
                 update = true;
-//                switch (node.message_info) {
-                switch (key) {
+                switch (node.message_info) {
+//                switch (key) {
                     case CODE_CLEAR:
                         u8g2.clearDisplay();
+                        Serial.println("Display clear.");
                         break;
                     case CODE_EM_LAUGH:
                         u8g2.drawXBMP(0, 0, 128, 64, EM_LAUGH);
+                        Serial.println("Display LAUGH.");
                         break;
                     case CODE_EM_SML:
 //                        u8g2.drawXBMP(0, 0, 128, 64, EM_SMAIL);
-                        continue;
+                        Serial.println("Display SMILE.");
+//                        continue;
                         break;
                     case CODE_EM_CRY:
                         u8g2.drawXBMP(0, 0, 128, 64, EM_CRY);
+                        Serial.println("Display CRY.");
                         break;
                     case CODE_EM_DIZZY:
                         u8g2.drawXBMP(0, 0, 128, 64, EM_DIZZY);
+                        Serial.println("Display dizzy.");
                         break;
                     case CODE_EM_WORRY:
                         u8g2.drawXBMP(0, 0, 128, 64, EM_WORRY);
+                        Serial.println("Display worry.");
                         break;
                     default:
                         update = false;
                         break;
                 }
                 if (update) {
-                    Serial.print("update   ");
-                    Serial.print(key);
-                    Serial.println("");
+//                    Serial.print("update   ");
+//                    Serial.print(key);
+//                    Serial.println("");
                     u8g2.nextPage();
                     delay(SCREEN_REST_TIME);
                 }

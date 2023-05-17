@@ -22,12 +22,12 @@ void setup() {
     Serial.println("Hello world!");
 
 
-//    mmg::setup();
+    mmg::setup();
 
     dis::setup();
 
-//    ult::setup();
-//
+    ult::setup();
+
 //    sms::setup();
 
 //    irs::setup();
@@ -115,12 +115,12 @@ void controller(mmg::MessageNode &message) {
 
 void loop() {
     // mail loop
-    Serial.println("Hello world!");
+    Serial.println("Loop call: Hello!");
 
     static mmg::MessageNode message;
 
-//    mmg::loop();
-//    ult::loop(message_manager);
+    mmg::loop();
+    ult::loop(message_manager);
 //    sms::loop(message_manager);
 //    irs::loop(message_manager);
 //    uvs::loop(message_manager);
@@ -142,13 +142,13 @@ void loop() {
 //    node.message_info = CODE_EM_LAUGH;  // Use smail expression to welcome
 //    message_manager.push(node);
 
-//    while (message_manager.pop(message) == 0) {
-//        controller(message);
-//    }
+    while (message_manager.pop(message) == 0) {
+        controller(message);
+    }
 
     dis::loop(message_manager);
 
-//    delay(1000);
+    delay(1000);
 }
 
 #endif

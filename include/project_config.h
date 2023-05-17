@@ -6,7 +6,7 @@
 #define MEC_E_PET_PROJECT_CONFIG_H
 
 #define IS_MAIN 1
-#define MESSAGE_NODE_NUMBERS 4
+#define MESSAGE_NODE_NUMBERS 3
 #define UV_LOW (-5.0f)
 #define ULT_LOW (5.0f)
 #define SOIL_WET 500   //  Define max value we consider soil 'wet'

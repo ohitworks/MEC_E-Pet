@@ -27,6 +27,7 @@ namespace ult {
     }
 
     void loop(mmg::MessageManager &msg_manager) {
+        static auto times = 0;
 //        digitalWrite(7, LOW);
         digitalWrite(TrigPin, LOW);        //Send level pulses to the Trigpin pins in low and high order
         delayMicroseconds(2);             //Delay time
